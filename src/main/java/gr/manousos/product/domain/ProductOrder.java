@@ -13,7 +13,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(of = {"productOrderPK"})
 public class ProductOrder {
 
   @EmbeddedId

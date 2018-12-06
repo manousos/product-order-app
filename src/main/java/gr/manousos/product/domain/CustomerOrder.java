@@ -6,7 +6,6 @@ import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import lombok.EqualsAndHashCode;
@@ -19,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(of = "id")
 public class CustomerOrder extends BaseEntity<Long> {
 
   @OneToMany(mappedBy = "customerOrder", cascade = ALL, orphanRemoval = true)
