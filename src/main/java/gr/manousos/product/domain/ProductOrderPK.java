@@ -1,7 +1,6 @@
 package gr.manousos.product.domain;
 
 import java.io.Serializable;
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
