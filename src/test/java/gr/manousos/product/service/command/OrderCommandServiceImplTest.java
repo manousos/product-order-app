@@ -51,7 +51,7 @@ public class OrderCommandServiceImplTest {
   }
 
   @Test
-  public void placeOrder() {
+  public void testPlaceOrder() {
     OrderSummaryDto expected = new OrderSummaryDto();
     when(modelMapper.map(inputDto, CustomerOrder.class)).thenReturn(inputOrder);
     when(modelMapper.map(any(), eq(OrderSummaryDto.class))).thenReturn(expected);
@@ -60,7 +60,7 @@ public class OrderCommandServiceImplTest {
   }
 
   @Test
-  public void saveOrderProducts() {
+  public void testSaveOrderProducts() {
     ProductOrder mockProdOrder = mock(ProductOrder.class);
     BaseProductDto mockProdDto = mock(BaseProductDto.class);
 
@@ -74,7 +74,7 @@ public class OrderCommandServiceImplTest {
   }
 
   @Test
-  public void saveOrder() {
+  public void testSaveOrder() {
     CustomerOrder expected = new CustomerOrder();
     when(customerOrderRepository.save(inputOrder)).thenReturn(expected);
 

@@ -27,7 +27,7 @@ public class OrderQueryServiceImplTest {
   }
 
   @Test
-  public void getAllOrdersWithinPeriod() {
+  public void tesGetAllOrdersWithinPeriod() {
     List<OrderDetailsProjection> expected = Arrays.asList(mock(OrderDetailsProjection.class));
     Instant from = Instant.now().minus(1, ChronoUnit.DAYS);
     Instant to = Instant.now().plus(1, ChronoUnit.DAYS);

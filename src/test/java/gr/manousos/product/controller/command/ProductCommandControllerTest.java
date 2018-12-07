@@ -60,7 +60,7 @@ public class ProductCommandControllerTest {
   }
 
   @Test
-  public void save() throws Exception {
+  public void testSave() throws Exception {
 
     this.mockMvc
         .perform(MockMvcRequestBuilders.post(URI)
@@ -76,7 +76,7 @@ public class ProductCommandControllerTest {
   }
 
   @Test
-  public void update() throws Exception {
+  public void testUpdate() throws Exception {
     this.mockMvc
         .perform(MockMvcRequestBuilders.put(URI)
             .content(mapper.writeValueAsString(dto))

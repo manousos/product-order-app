@@ -21,7 +21,7 @@ public class ProductOrderQueryServiceImplTest {
   }
 
   @Test
-  public void calculateTotalPriceOrderByOrderId() {
+  public void testCalculateTotalPriceOrderByOrderId() {
     when(mockRepo.getPriceSumbyOrderId(1L)).thenReturn(5d);
 
     assertEquals(new Double(5), testClass.calculateTotalPriceOrderByOrderId(1L));

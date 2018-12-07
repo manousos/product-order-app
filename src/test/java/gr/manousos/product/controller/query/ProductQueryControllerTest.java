@@ -39,7 +39,7 @@ public class ProductQueryControllerTest {
   }
 
   @Test
-  public void getAll() throws Exception {
+  public void testGetAll() throws Exception {
     this.mockMvc
         .perform(get("/api/product/all"))
         .andExpect(status().isOk());

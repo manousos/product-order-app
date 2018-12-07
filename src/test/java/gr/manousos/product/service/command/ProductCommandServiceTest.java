@@ -28,7 +28,7 @@ public class ProductCommandServiceTest {
   }
 
   @Test
-  public void save() {
+  public void testSave() {
     Product expected = new Product();
     when(mockRepo.save(inputProduct)).thenReturn(expected);
 
@@ -36,7 +36,7 @@ public class ProductCommandServiceTest {
   }
 
   @Test
-  public void updateById() {
+  public void testUpdateById() {
     Product expected = new Product();
 
     when(mockRepo.findById(1L)).thenReturn(Optional.of(inputProduct));
@@ -46,7 +46,7 @@ public class ProductCommandServiceTest {
   }
 
   @Test(expected = EntityNotFoundException.class)
-  public void updateByIdCaseNotFound() {
+  public void testUpdateByIdCaseNotFound() {
     testClass.updateById(1L, inputProduct);
     verify(mockRepo, never()).save(any());
   }

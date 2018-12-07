@@ -22,7 +22,7 @@ public class ProductQueryServiceImplTest {
   }
 
   @Test
-  public void findAll() {
+  public void testFindAll() {
     ProductInfoProjection mockProd = mock(ProductInfoProjection.class);
     when(mockRepo.getAll()).thenReturn(Arrays.asList(mockProd));
 
