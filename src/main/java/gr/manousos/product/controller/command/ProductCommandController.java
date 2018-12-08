@@ -3,21 +3,21 @@ package gr.manousos.product.controller.command;
 import static org.springframework.http.HttpStatus.CREATED;
 
 import gr.manousos.product.domain.Product;
-import gr.manousos.product.domain.dto.BaseProductDto;
 import gr.manousos.product.domain.dto.ProductDto;
 import gr.manousos.product.service.command.ProductCommandService;
+import io.swagger.annotations.ApiOperation;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * The command's actions for product.
  */
-@Controller
+@RestController
 @RequestMapping(value = "/api/product")
 class ProductCommandController {
 
@@ -37,20 +37,22 @@ class ProductCommandController {
    * @return the created product.
    */
   @PostMapping
-  ResponseEntity<BaseProductDto> save(@RequestBody ProductDto productDto) {
+  @ApiOperation(value = "Create a new product")
+  ResponseEntity<ProductDto> save(@RequestBody ProductDto productDto) {
     Product p = productCommandService.save(modelMapper.map(productDto, Product.class));
     return new ResponseEntity<>(modelMapper.map(p, ProductDto.class), CREATED);
   }
 
 
   /**
-   * Update a product if exists. Else create new.
+   * Update a product if exists.
    *
    * @param productDto the product data.
    * @return the update product.
    */
   @PutMapping
-  ResponseEntity<BaseProductDto> update(@RequestBody ProductDto productDto) {
+  @ApiOperation(value = "Update a product if exists")
+  ResponseEntity<ProductDto> update(@RequestBody ProductDto productDto) {
     Product p = productCommandService
         .updateById(productDto.getId(), modelMapper.map(productDto, Product.class));
     return ResponseEntity.ok(modelMapper.map(p, ProductDto.class));
